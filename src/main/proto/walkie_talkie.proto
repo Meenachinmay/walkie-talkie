@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.walkietalkie.grpc";
+
+package walkietalkie;
+
+service WalkieTalkie {
+  rpc AudioStream (stream AudioMessage) returns (stream AudioMessage) {}
+}
+
+message AudioMessage {
+  bytes audioData = 1;
+  int64 timestamp = 2;
+}
